@@ -11,11 +11,11 @@
 ## [[⬆]](#catalog) <a name="css">CSS相关问题</a>
 
 ## [[⬆]](#catalog) <a name="js">JS相关问题</a>
-* js中五大基本（原始）数据类型？
+1. js中五大基本（原始）数据类型？
 * number,string,boolean,null,underfined
 ![](https://images2015.cnblogs.com/blog/315302/201702/315302-20170205164840214-221836365.png)
-* js中的new()到底做了些什么？
-  * 创建一个空对象
-  * 将这个空对象的__proto__，指向构造函数的prototype属性
-  * 将这个空对象赋值给函数内部的this关键字
-  * 开始执行构造函数内部的代码
+1. js中的new()到底做了些什么？
+* 创建一个空对象
+* 将这个空对象的__proto__，指向构造函数的prototype属性
+* 将这个空对象赋值给函数内部的this关键字
+* 开始执行构造函数内部的代码
