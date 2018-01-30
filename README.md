@@ -12,7 +12,7 @@
 
 ## [[⬆]](#catalog) <a name="js">JS相关问题</a>
 * js中五大基本（原始）数据类型？
-* number,string,boolean,null,underfined
+  * number,string,boolean,null,underfined
 ![](https://images2015.cnblogs.com/blog/315302/201702/315302-20170205164840214-221836365.png)
 * js中的new()到底做了些什么？
   * 创建一个空对象
