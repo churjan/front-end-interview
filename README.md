@@ -19,3 +19,21 @@
   * 将这个空对象的__proto__，指向构造函数的prototype属性
   * 将这个空对象赋值给函数内部的this关键字
   * 开始执行构造函数内部的代码
+* 手写移动端字体自适应方案
+```js
+ (function (doc, win) {
+    var docEl = doc.documentElement,
+      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+      recalc = function () {
+        var clientWidth = docEl.clientWidth;
+        if (!clientWidth) return;
+        var fontSize = 100 * (clientWidth / 750);
+        docEl.style.fontSize = fontSize + 'px';
+      };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+```
+
+
