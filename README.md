@@ -21,6 +21,11 @@ number,string,boolean,null,underfined
   * 将这个空对象的__proto__，指向构造函数的prototype属性
   * 将这个空对象赋值给函数内部的this关键字
   * 开始执行构造函数内部的代码
+```js
+var obj  = {};
+obj.__proto__ = Base.prototype;
+Base.call(obj);
+```
 
 * 手写移动端字体自适应方案
 ```js
