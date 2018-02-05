@@ -2,14 +2,24 @@
 
 ## <a name="catalog">目录</a>
 
+1. [开放性相关问题](#base)
 1. [HTML相关问题](#html)
 1. [CSS相关问题](#css)
 1. [JS相关问题](#js)
 
-## [[⬆]](#catalog) <a name="html">HTML相关问题</a>
-  
-## [[⬆]](#catalog) <a name="css">CSS相关问题</a>
+## [[⬆]](#catalog) <a name="base">开放性相关问题</a>  
+* 自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。
 
+* 项目介绍
+
+* 如何看待前端开发？
+
+* 平时是如何学习前端开发的？
+
+* 未来三到五年的规划是怎样的？
+
+## [[⬆]](#catalog) <a name="html">HTML相关问题</a>  
+## [[⬆]](#catalog) <a name="css">CSS相关问题</a>  
 ## [[⬆]](#catalog) <a name="js">JS相关问题</a>
 
 * js中五大基本（原始）数据类型？  
