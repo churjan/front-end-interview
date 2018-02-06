@@ -1,6 +1,6 @@
 # 前端面试题目
 
-## <a name="catalog">目录</a>
+## <div id="catalog">目录</div>
 
 1. [开放性问题](#base)
 1. [HTML部分](#html)
@@ -19,9 +19,9 @@
 
 * 未来三到五年的规划是怎样的？
 
-## [[⬆]](#catalog) <a name="html">HTML部分</a>  
-## [[⬆]](#catalog) <a name="css">CSS部分</a>  
-## [[⬆]](#catalog) <a name="js">JS概念部分</a>
+## [[⬆]](#catalog) <span id="html">HTML部分</span>  
+## [[⬆]](#catalog) <span id="css">CSS部分</span>  
+## [[⬆]](#catalog) <span id="js">JS概念部分</span>
 
 
 * js中五大基本（原始）数据类型？  
@@ -59,7 +59,7 @@ Base.call(obj);
 闭包是指有权访问另一个函数作用域中变量的函数  
 闭包可以用在许多地方。它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。  
 
-## [[⬆]](#catalog) <a name="js2">JS编程部分</a>
+## [[⬆]](#catalog) <span id="js2">JS编程部分</span>
 
 * 考察JS变量声明、作用域、原型链
 ```js
