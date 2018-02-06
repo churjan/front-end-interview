@@ -2,12 +2,13 @@
 
 ## <a name="catalog">目录</a>
 
-1. [开放性相关问题](#base)
-1. [HTML相关问题](#html)
-1. [CSS相关问题](#css)
-1. [JS相关问题](#js)
+1. [开放性问题](#base)
+1. [HTML部分](#html)
+1. [CSS部分](#css)
+1. [JS概念部分](#js)
+1. [JS编程部分](#js2)
 
-## [[⬆]](#catalog) <a name="base">开放性相关问题</a>  
+## [[⬆]](#catalog) <a name="base">开放性问题</a>  
 * 自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。
 
 * 项目介绍
@@ -18,9 +19,10 @@
 
 * 未来三到五年的规划是怎样的？
 
-## [[⬆]](#catalog) <a name="html">HTML相关问题</a>  
-## [[⬆]](#catalog) <a name="css">CSS相关问题</a>  
-## [[⬆]](#catalog) <a name="js">JS相关问题</a>
+## [[⬆]](#catalog) <a name="html">HTML部分</a>  
+## [[⬆]](#catalog) <a name="css">CSS部分</a>  
+## [[⬆]](#catalog) <a name="js">JS概念部分</a>
+
 
 * js中五大基本（原始）数据类型？  
 number,string,boolean,null,underfined
@@ -57,8 +59,40 @@ Base.call(obj);
 闭包是指有权访问另一个函数作用域中变量的函数  
 闭包可以用在许多地方。它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。  
 
+## [[⬆]](#catalog) <a name="js2">JS编程部分</a>
 
+* 考察JS变量声明、作用域、原型链
+```js
+function Foo() {
+    getName = function () { 
+    	console.log('1');
+    };
+    return this;
+}
+Foo.getName = function () {
+	console.log('2');
+};
+Foo.prototype.getName = function () { 
+	console.log('3');
+};
+var getName = function () { 
+	console.log('4');
+};
+function getName() { 
+	console.log(5);
+}
 
+Foo.getName();  
+getName();	
+Foo().getName(); 
+getName();  
+new Foo.getName(); 
+new Foo().getName();   
+new new Foo().getName();		
+
+请问上述代码在浏览器环境下，输出结果是多少？
+```
+参考答案：[一道颇有难度的JavaScript题](https://cnodejs.org/topic/5867d50d5eac96bb04d3e302)
 
 
 
