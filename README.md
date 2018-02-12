@@ -38,7 +38,7 @@ number,string,boolean,null,underfined
 * js中的new()到底做了些什么？
   * 创建一个新对象
   * 将构造函数的作用域赋给新对象(因此 this 就指向了这个新对象)
-  * 将这个新对象的__proto__，指向构造函数的prototype属性
+  * 添加一个名为__proto__的新属性，并且指向构造函数的原型(prototype)
   * 执行构造函数中的代码(为这个新对象添加属性)
   * 返回新对象
 ```js
