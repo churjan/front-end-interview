@@ -23,9 +23,23 @@
 ## [[⬆]](#catalog) <span id="css">CSS部分</span>  
 ## [[⬆]](#catalog) <span id="js">JS概念部分</span>
 
+* js中内置类型？
 
-* js中五大基本（原始）数据类型？  
-number,string,boolean,null,underfined
+number,string,boolean,null,underfined、symbol(es6新增)、object  
+除对象之外,其他统称为“基本类型”。
+
+typeof 运算符来查看值的类型,它返回的是类型的字符串值。
+
+```js
+typeof 42 //number
+typeof '42' //string
+typeof true //bollean
+typeof null //object
+typeof undefined //undefined
+typeof Symbol() //symbol
+typeof {n:42} //object
+typeof function a(){} //function
+```
 
 * 什么是作用域链？  
 当代码在一个环境中执行时,会创建变量对象的一个作用域链(scope chain)。作用域链的用途,是 保证对执行环境有权访问的所有变量和函数的有序访问。
