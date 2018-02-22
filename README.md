@@ -3,10 +3,10 @@
 ## <div id="catalog">目录</div>
 
 1. [开放性问题](#base)
-1. [HTML部分](#html)
+1. [HTML,http,web部分](#html)
 1. [CSS部分](#css)
 1. [JS概念部分](#js)
-1. [JS编程部分](#js2)
+1. [JS编程部分](#code)
 
 ## <div id="base">[:top:](#catalog) 开放性问题</div>
 
@@ -20,7 +20,58 @@
 
 ### 未来三到五年的规划是怎样的？
 
-## <div id="html">[:top:](#catalog) HTML部分</div>
+## <div id="html">[:top:](#catalog) HTML,http,web部分部分</div>
+
+### HTTP request报文结构是怎样的
+
+1. 首行是**Request-Line**包括：**请求方法**，**请求URI**，**协议版本**，**CRLF**
+1. 首行之后是若干行**请求头**，包括**general-header**，**request-header**或者**entity-header**，每个一行以CRLF结束
+1. 请求头和消息实体之间有一个**CRLF分隔**
+1. 根据实际请求需要可能包含一个**消息实体**
+
+一个请求报文例子如下：
+
+```text
+GET /Protocols/rfc2616/rfc2616-sec5.html HTTP/1.1
+Host: www.w3.org
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36
+Referer: https://www.google.com.hk/
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: zh-CN,zh;q=0.8,en;q=0.6
+Cookie: authorstyle=yes
+If-None-Match: "2cc8-3e3073913b100"
+If-Modified-Since: Wed, 01 Sep 2004 13:24:52 GMT
+
+name=qiu&age=25
+```
+
+[rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html)中进行了定义：
+
+1. 首行是状态行包括：**HTTP版本，状态码，状态描述**，后面跟一个CRLF
+1. 首行之后是**若干行响应头**，包括：**通用头部，响应头部，实体头部**
+1. 响应头部和响应实体之间用**一个CRLF空行**分隔
+1. 最后是一个可能的**消息实体**
+
+响应报文例子如下：
+
+```text
+HTTP/1.1 200 OK
+Date: Tue, 08 Jul 2014 05:28:43 GMT
+Server: Apache/2
+Last-Modified: Wed, 01 Sep 2004 13:24:52 GMT
+ETag: "40d7-3e3073913b100"
+Accept-Ranges: bytes
+Content-Length: 16599
+Cache-Control: max-age=21600
+Expires: Tue, 08 Jul 2014 11:28:43 GMT
+P3P: policyref="http://www.w3.org/2001/05/P3P/p3p.xml"
+Content-Type: text/html; charset=iso-8859-1
+
+{"name": "qiu", "age": 25}
+```
 
 ## <div id="css">[:top:](#catalog) CSS部分</div>
 
@@ -143,7 +194,7 @@ xhr.send();
 1. 404：请求失败，请求所希望得到的资源未被在服务器上发现。
 1. 500：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器端的源代码出现错误时出现。
 
-## <div id="js2">[:top:](#catalog) JS编程部分</div>
+## <div id="code">[:top:](#catalog) JS编程部分</div>
 
 ### 考察JS变量声明、作用域、原型链
 
@@ -218,6 +269,6 @@ for(var i=0;i<str.length;i++){
     }
 }
 for(key in obj){
-    document.write(obj[key].value +'='+obj[key].count+'&nbsp;'); // a=4  b=3  c=4  d=2  f=1  g=1  h=1 
+    document.write(obj[key].value +'='+obj[key].count+'&nbsp;'); // a=4  b=3  c=4  d=2  f=1  g=1  h=1
 }
 ```
