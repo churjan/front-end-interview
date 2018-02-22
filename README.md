@@ -48,7 +48,7 @@ If-Modified-Since: Wed, 01 Sep 2004 13:24:52 GMT
 name=qiu&age=25
 ```
 
-[rfc2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html)中进行了定义：
+### HTTP response报文结构是怎样的
 
 1. 首行是状态行包括：**HTTP版本，状态码，状态描述**，后面跟一个CRLF
 1. 首行之后是**若干行响应头**，包括：**通用头部，响应头部，实体头部**
