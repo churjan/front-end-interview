@@ -8,7 +8,7 @@
 1. [JS概念部分](#js)
 1. [JS编程部分](#js2)
 
-## [[⬆]](#catalog) <a name="base">开放性问题</a>  
+## [[⬆]](#catalog) <span id="base">开放性问题</span>  
 * 自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。
 
 * 项目介绍
@@ -19,13 +19,27 @@
 
 * 未来三到五年的规划是怎样的？
 
-## [[⬆]](#catalog) <span id="html">HTML部分</span>  
-## [[⬆]](#catalog) <span id="css">CSS部分</span>  
+## [[⬆]](#catalog) <span id="html">HTML部分</span>
+
+## [[⬆]](#catalog) <span id="css">CSS部分</span>
+
+* 什么是BFC?如何触发BFC?
+
+BFC全称为block formatting context,中文为“块级格式化上下文”。具有 BFC特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且BFC具有普通容器所没有的一些特性。
+
+触发 BFC
+
+1. `<HTML>`根元素
+1. 浮动元素：float 除 none 以外的值
+1. position 的值不为 relative 和 static
+1. display 为 inline-block、table-cells、flex
+1. overflow 除了 visible 以外的值 (hidden、auto、scroll)
+
 ## [[⬆]](#catalog) <span id="js">JS概念部分</span>
 
-* js中内置类型？
+* js中有多少个内置类型？
 
-number,string,boolean,null,underfined、symbol(es6新增)、object  
+number,string,boolean,null,underfined,symbol(es6新增),object  
 除对象之外,其他统称为“基本类型”。
 
 typeof 运算符来查看值的类型,它返回的是类型的字符串值。
@@ -41,8 +55,18 @@ typeof {n:42} //object
 typeof function a(){} //function
 ```
 
+* 什么是闭包(closure)，为什么要使用它？
+
+闭包就是能够读取其他函数内部变量的函数。
+闭包可以用在许多地方。它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
+
+* 什么是作用域？
+
+它是指对某一变量和方法具有访问权限的代码空间，表示变量或函数起作用的区域，指代了它们在什么样的上下文中执行，亦即上下文执行环境。每个执行环境都有一个与之关联的变量对象(variable object),环境中定义的所有变量和函数都保存在这个对象中。Javascript的作用域只有两种：全局作用域和本地作用域，本地作用域是按照函数来区分的。
+
 * 什么是作用域链？  
-当代码在一个环境中执行时,会创建变量对象的一个作用域链(scope chain)。作用域链的用途,是 保证对执行环境有权访问的所有变量和函数的有序访问。
+
+当代码在一个环境中执行时,会创建变量对象的一个作用域链(scope chain)。作用域链的用途,是 保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端,始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数,则将其活动对象(activation object)作为变量对象。活动对象在最开始时只包含一个变量,即arguments对象(这个对象在全局环境中是不存在的)。作用域链中的下一个变量对象来自包含(外部)环境,而再下一个变量对象则来自下一个包含环境。这样,一直延续到全局执行环境;全局执行环境的变量对象始终都是作用域链中的最后一个对象。
 
 * 事件流三个阶段
 1. 事件捕捉阶段：事件开始由顶层对象触发，然后逐级向下传播，直到目标的元素；
@@ -55,6 +79,7 @@ typeof function a(){} //function
   * 添加一个名为__proto__的新属性，并且指向构造函数的原型(prototype)
   * 执行构造函数中的代码(为这个新对象添加属性)
   * 返回新对象
+
 ```js
 var obj  = {};
 obj.__proto__ = Base.prototype;
@@ -62,6 +87,7 @@ Base.call(obj);
 ```
 
 * 手写移动端字体自适应方案
+
 ```js
  (function (doc, win) {
     var docEl = doc.documentElement,
@@ -77,9 +103,6 @@ Base.call(obj);
     doc.addEventListener('DOMContentLoaded', recalc, false);
   })(document, window);
 ```
-* 什么是闭包(closure)，为什么要使用它？  
-闭包是指有权访问另一个 函数作用域中的变量的函数,创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量,利用闭包可以突破作用链域，将函数内部的变量和方法传递到外部。
-闭包可以用在许多地方。它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。  
 
 * 什么是原型？  
 每创建一个函数，函数上都有一个属性为 prototype，它的值是一个对象。 这个对象的作用在于当使用函数创建实例的时候，那么这些实例都会共享原型上的属性和方法。
