@@ -8,7 +8,7 @@
 1. [JS概念部分](#js)
 1. [JS编程部分](#js2)
 
-## [[⬆]](#catalog) <span id="base">开放性问题</span>  
+## :top: (#catalog) <span id="base">开放性问题</span>  
 * 自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。
 
 * 项目介绍
@@ -19,9 +19,9 @@
 
 * 未来三到五年的规划是怎样的？
 
-## [[⬆]](#catalog) <span id="html">HTML部分</span>
+## :top: (#catalog) <span id="html">HTML部分</span>
 
-## [[⬆]](#catalog) <span id="css">CSS部分</span>
+## :top: (#catalog) <span id="css">CSS部分</span>
 
 * 什么是BFC?如何触发BFC?
 
@@ -35,7 +35,7 @@ BFC全称为block formatting context,中文为“块级格式化上下文”。�
 1. display 为 inline-block、table-cells、flex
 1. overflow 除了 visible 以外的值 (hidden、auto、scroll)
 
-## [[⬆]](#catalog) <span id="js">JS概念部分</span>
+## :top: (#catalog) <span id="js">JS概念部分</span>
 
 * js中有多少个内置类型？
 
@@ -137,7 +137,7 @@ xhr.send();
 1. 404：请求失败，请求所希望得到的资源未被在服务器上发现。
 1. 500：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器端的源代码出现错误时出现。
 
-## [[⬆]](#catalog) <span id="js2">JS编程部分</span>
+## :top: (#catalog) <span id="js2">JS编程部分</span>
 
 * 考察JS变量声明、作用域、原型链
 ```js
