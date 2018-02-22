@@ -195,6 +195,25 @@ function clone(obj) {
     }else{ //不为对象，直接把值返回
         return obj;
     }
-    return o;
+}
+```
+
+* 统计字符串中字母个数或统计最多字母
+
+```js
+var str = "aaaabbbccccddfgh";
+var obj  = {};
+for(var i=0;i<str.length;i++){
+    var v = str.charAt(i);
+    if(obj[v]){
+        obj[v].count++;
+    }else{
+        obj[v] = {};
+        obj[v].count = 1;
+        obj[v].value = v;
+    }
+}
+for(key in obj){
+    document.write(obj[key].value +'='+obj[key].count+'&nbsp;'); // a=4  b=3  c=4  d=2  f=1  g=1  h=1 
 }
 ```
