@@ -104,13 +104,15 @@ Base.call(obj);
   })(document, window);
 ```
 
-* 什么是原型？  
-每创建一个函数，函数上都有一个属性为 prototype，它的值是一个对象。 这个对象的作用在于当使用函数创建实例的时候，那么这些实例都会共享原型上的属性和方法。
+* 什么是原型？
 
-* 什么是原型链？  
-在 JavaScript 中，每个对象都有一个指向它的原型（prototype）对象的内部链接（proto）。这个原型对象又有自己的原型，直到某个对象的原型为 null 为止（也就是不再有原型指向）。这种一级一级的链结构就称为原型链（prototype chain）。 当查找一个对象的属性时，JavaScript 会向上遍历原型链，直到找到给定名称的属性为止;到查找到达原型链的顶部（Object.prototype），仍然没有找到指定的属性，就会返回 undefined。
+每创建一个函数，函数上都有一个属性为prototype，它的值是一个对象。这个对象的作用在于当使用函数创建实例的时候，那么这些实例都会共享原型上的属性和方法。
 
-* 请简述 AJAX 及基本步骤？  
+* 什么是原型链？
+
+在JavaScript中，每个对象都有一个指向它的原型（prototype）对象的内部链接（proto）。这个原型对象又有自己的原型，直到某个对象的原型为null为止（也就是不再有原型指向）。这种一级一级的链结构就称为原型链（prototype chain）。当查找一个对象的属性时，JavaScript会向上遍历原型链，直到找到给定名称的属性为止;到查找到达原型链的顶部（Object.prototype），仍然没有找到指定的属性，就会返回undefined。
+
+* 请简述AJAX及基本步骤？
 1. 初始化ajax对象
 1. 连接地址，准备数据
 1. 发送请求
@@ -128,7 +130,6 @@ xhr.onload =function(){}
 xhr.send();
 ```
 
-
 * HTTP 状态消息 200 302 304 403 404 500 分别表示什么？  
 1. 200：请求已成功，请求所希望的响应头或数据体将随此响应返回。
 1. 302：请求的资源临时从不同的 URI 响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。只有在 Cache-Control 或 Expires 中进行了指定的情况下，这个响应才是可缓存的。
@@ -140,36 +141,38 @@ xhr.send();
 ## [:top:](#catalog) <span id="js2">JS编程部分</span>
 
 * 考察JS变量声明、作用域、原型链
+
 ```js
 function Foo() {
-    getName = function () { 
-    	console.log('1');
+    getName = function () {
+        console.log('1');
     };
     return this;
 }
 Foo.getName = function () {
-	console.log('2');
+    console.log('2');
 };
-Foo.prototype.getName = function () { 
-	console.log('3');
+Foo.prototype.getName = function () {
+    console.log('3');
 };
-var getName = function () { 
-	console.log('4');
+var getName = function () {
+    console.log('4');
 };
-function getName() { 
-	console.log(5);
+function getName() {
+    console.log(5);
 }
 
-Foo.getName();  
-getName();	
-Foo().getName(); 
-getName();  
-new Foo.getName(); 
-new Foo().getName();   
-new new Foo().getName();		
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();
 
 请问上述代码在浏览器环境下，输出结果是多少？
 ```
+
 参考答案：[一道颇有难度的JavaScript题](https://cnodejs.org/topic/5867d50d5eac96bb04d3e302)
 
 * 实现一个函数 clone()，可以对 JavaScript 中的5种主要的数据类型（包括 Number、String、Object、Array、Boolean）进行值复制。
@@ -194,7 +197,3 @@ function clone(obj) {
     return o;
 }
 ```
-
-
-
-
