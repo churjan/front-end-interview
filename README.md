@@ -75,6 +75,96 @@ Content-Type: text/html; charset=iso-8859-1
 
 ## <div id="css">[:top:](#catalog) CSS部分</div>
 
+### 如何垂直居中一个元素？
+
+有以下HTML标签，假设`父标签宽400px，高200px，子标签宽200px，高100px，`请列出各种垂直居中方法
+
+```html
+<div class="father">
+    <div class="son"></div>
+</div>
+```
+
+1.利用`line-height`实现垂直居中
+
+```css
+.son{
+    line-height:200px;
+}
+```
+
+2.利用`display: table`实现垂直居中
+
+```css
+.father{
+    display:table;
+    .son{
+        display:table-cell;
+        vertical-align:center;
+    }
+}
+```
+
+3.`margin`填充
+
+```css
+.son{
+    margin-top:calc((400px-200px)/2);
+}
+```
+
+4.经典`absolute`布局上下文垂直居中
+
+```css
+.son{
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-100px;
+    margin-top:-50px;
+}
+```
+
+4.CSS3下`absolute`布局上下文垂直居中
+
+```css
+.son{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+```
+
+5.利用`margin：auto`居中
+
+```css
+.son{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width:200px;
+    height:100px;
+    margin:auto;
+}
+```
+
+6.利用Flex布局居中
+
+```css
+.father{
+    display:flex;
+    .son{
+        align-items:center;
+        justify-content:center;
+    }
+}
+```
+
+参考：[垂直居中实现方式总结](https://juejin.im/entry/58296b1a570c3500587bb553)
+
 ### 什么是BFC？如何触发BFC？
 
 BFC全称为block formatting context,中文为“块级格式化上下文”。具有 BFC特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且BFC具有普通容器所没有的一些特性。
