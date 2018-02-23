@@ -73,6 +73,22 @@ Content-Type: text/html; charset=iso-8859-1
 {"name": "qiu", "age": 25}
 ```
 
+### 一个页面从输入URL到页面加载显示完成，这个过程都发生什么？
+
+一般会经历以下几个过程：
+
+1. 首先，在浏览器地址栏中输入url
+1. 浏览器先查看浏览器缓存-系统缓存-路由器缓存，如果缓存中有，会直接在屏幕中显示页面内容。若没有，则跳到第三步操作。
+1. 在发送http请求前，需要域名解析(DNS解析)，解析获取相应的IP地址。
+1. 浏览器向服务器发起tcp连接，与浏览器建立tcp三次握手。
+1. 握手成功后，浏览器向服务器发送http请求，请求数据包。
+1. 服务器处理收到的请求，将数据返回至浏览器
+1. 浏览器收到HTTP响应
+1. 读取页面内容，浏览器渲染，解析html源码
+1. 生成Dom树、解析css样式、js交互
+1. 客户端和服务器交互
+1. ajax查询
+
 ## <div id="css">[:top:](#catalog) CSS部分</div>
 
 ### 如何垂直居中一个元素？
@@ -156,10 +172,8 @@ Content-Type: text/html; charset=iso-8859-1
 ```css
 .father{
     display:flex;
-    .son{
-        align-items:center;
-        justify-content:center;
-    }
+    align-items:center;
+    justify-content:center;
 }
 ```
 
@@ -196,6 +210,10 @@ BFC全称为block formatting context,中文为“块级格式化上下文”。�
 1. position 的值不为 relative 和 static
 1. display 为 inline-block、table-cells、flex
 1. overflow 除了 visible 以外的值 (hidden、auto、scroll)
+
+### 请写出圣杯布局和双飞翼布局
+
+参考：[圣杯和双飞翼布局介绍](https://segmentfault.com/a/1190000013301463)
 
 ## <div id="js">[:top:](#catalog) JS概念部分</div>
 
