@@ -3,7 +3,7 @@
 ## <div id="catalog">目录</div>
 
 1. [开放性问题](#base)
-1. [HTML,http,web部分](#html)
+1. [HTML,HTTP部分](#html)
 1. [CSS部分](#css)
 1. [JS概念部分](#js)
 1. [JS编程部分](#code)
@@ -20,7 +20,7 @@
 
 ### 未来三到五年的规划是怎样的？
 
-## <div id="html">[:top:](#catalog) HTML,http,web部分部分</div>
+## <div id="html">[:top:](#catalog) HTML,HTTP部分</div>
 
 ### HTTP request报文结构是怎样的
 
