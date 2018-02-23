@@ -165,6 +165,26 @@ Content-Type: text/html; charset=iso-8859-1
 
 参考：[垂直居中实现方式总结](https://juejin.im/entry/58296b1a570c3500587bb553)
 
+### 字体font-family
+
+```text
+@ 宋体      SimSun
+@ 黑体      SimHei
+@ 微信雅黑   Microsoft Yahei
+@ 微软正黑体 Microsoft JhengHei
+@ 新宋体    NSimSun
+@ 新细明体  MingLiU
+@ 细明体    MingLiU
+@ 标楷体    DFKai-SB
+@ 仿宋     FangSong
+@ 楷体     KaiTi
+@ 仿宋_GB2312  FangSong_GB2312
+@ 楷体_GB2312  KaiTi_GB2312  
+@
+@ 说明：中文字体多数使用宋体、雅黑，英文用Helvetica
+body { font-family: Microsoft Yahei,SimSun,Helvetica; }
+```
+
 ### 什么是BFC？如何触发BFC？
 
 BFC全称为block formatting context,中文为“块级格式化上下文”。具有 BFC特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且BFC具有普通容器所没有的一些特性。
@@ -216,6 +236,14 @@ typeof function a(){} //function
 1. 处于目标阶段：处在绑定事件的元素上；
 1. 事件冒泡阶段：事件由具体的元素先接收，然后逐级向上传播，直到不具体的元素；
 
+### 简述同步与异步的区别
+
+同步是阻塞模式，异步是非阻塞模式。
+
+同步就是指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息，那么这个进程将会一直等待下去，直到收到返回信息才继续执行下去;
+
+异步是指进程不需要一直等下去，而是继续执行下面的操作，不管其他进程的状态。当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率。
+
 ### js中的new()到底做了些什么？
 
 1. 创建一个新对象
@@ -229,6 +257,59 @@ var obj  = {};
 obj.__proto__ = Base.prototype;
 Base.call(obj);
 ```
+
+### 跨域的几种方式
+
+首先了解下浏览器的同源策略
+
+同源策略/SOP（Same origin policy）是一种约定，由Netscape公司1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSFR等攻击。所谓同源是指"协议+域名+端口"三者相同，即便两个不同的域名指向同一个ip地址，也非同源。
+
+那么怎样解决跨域问题的呢？
+
+1.通过jsonp跨域
+
+```html
+<script>
+var script = document.createElement('script');
+script.type = 'text/javascript';
+
+// 传参并指定回调执行函数为onBack
+script.src = 'http://www.....:8080/login?user=admin&callback=onBack';
+document.head.appendChild(script);
+
+// 回调执行函数
+function onBack(res) {
+    alert(JSON.stringify(res));
+}
+</script>
+```
+
+2.document.domain + iframe跨域  
+
+此方案仅限主域相同，子域不同的跨域应用场景。
+
+```html
+<!-- 父窗口：(http://www.domain.com/a.html) -->
+<iframe id="iframe" src="http://child.domain.com/b.html"></iframe>
+<script>
+    document.domain = 'domain.com';
+    var user = 'admin';
+</script>
+<!-- 子窗口：(http://child.domain.com/b.html) -->
+<script>
+    document.domain = 'domain.com';
+    // 获取父窗口中变量
+    alert('get js data from parent ---> ' + window.parent.user);
+</script>
+```
+
+3.nginx代理跨域
+
+4.nodejs中间件代理跨域
+
+5.后端在头部信息里面设置安全域名
+
+参考：[更多跨域的具体内容请看](https://segmentfault.com/a/1190000011145364)
 
 ### 手写移动端字体自适应方案
 
