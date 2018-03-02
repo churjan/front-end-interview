@@ -6,6 +6,7 @@
 1. [HTML,HTTP部分](#html)
 1. [CSS部分](#css)
 1. [JS概念部分](#js)
+1. [Vue部分](#vue)
 1. [JS编程部分](#code)
 
 ## <div id="base">[:top:](#catalog) 开放性问题</div>
@@ -33,6 +34,20 @@
 1. WEB 服务器响应请求并返回指定 URL 的数据,或错误信息,如果设定重定向,则重 定向到新的 URL 地址。
 1. 浏览器下载数据后解析 HTML 源文件,解析的过程中实现对页面的排版,解析完成 后在浏览器中显示基础页面。
 1. 分析页面中的超链接并显示在当前页面,重复以上过程直至无超链接需要发送,完 成全部显示。
+
+### 重排和重绘
+
+1. 部分渲染树（或者整个渲染树）需要重新分析并且节点尺寸需要重新计算。这被称为重排。注意这里至少会有一次重排-初始化页面布局。
+1. 由于节点的几何属性发生改变或者由于样式发生改变，例如改变元素背景色时，屏幕上的部分内容需要更新。这样的更新被称为重绘。
+
+### 什么情况会触发重排和重绘？
+
+1. 添加、删除、更新`DOM`节点
+1. 通过`display: none`隐藏一个`DOM`节点-触发重排和重绘
+1. 通过`visibility: hidden`隐藏一个`DOM`节点-只触发重绘，因为没有几何变化
+1. 移动或者给页面中的`DOM`节点添加动画
+1. 添加一个样式表，调整样式属性
+1. 用户行为，例如调整窗口大小，改变字号，或者滚动。
 
 ### HTTP request报文结构是怎样的
 
@@ -84,6 +99,34 @@ Content-Type: text/html; charset=iso-8859-1
 
 {"name": "qiu", "age": 25}
 ```
+
+### HTTP 状态消息 200 302 304 403 404 500 分别表示什么？
+
+1. 200：请求已成功，请求所希望的响应头或数据体将随此响应返回。
+1. 302：请求的资源临时从不同的 URI 响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。只有在 Cache-Control 或 Expires 中进行了指定的情况下，这个响应才是可缓存的。
+1. 304：如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。304 响应禁止包含消息体，因此始终以消息头后的第一个空行结尾。
+1. 403：服务器已经理解请求，但是拒绝执行它。
+1. 404：请求失败，请求所希望得到的资源未被在服务器上发现。
+1. 500：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器端的源代码出现错误时出现。
+
+### 项目中做过哪些优化？
+
+1. 减少`HTTP`请求数
+1. 减少`DNS`查询
+1. 使用`CDN`
+1. 避免重定向
+1. 图片懒加载
+1. 减少`DOM`元素数量
+1. 减少`DOM`操作
+1. 使用外部`JavaScript`和`CSS`
+1. 压缩`JavaScript`、`CSS`、字体、图片等
+1. 优化`CSS Sprite`
+1. 使用`iconfont`
+1. 字体裁剪
+1. 多域名分发划分内容到不同域名
+1. 尽量减少`iframe`使用
+1. 避免图片`src`为空
+1. 把脚本放在页面底部
 
 ## <div id="css">[:top:](#catalog) CSS部分</div>
 
@@ -238,6 +281,8 @@ typeof function a(){} //function
 
 ### 什么是作用域？什么是作用域链？
 
+作用域表示的是变量或函数的可访问范围。
+
 它是指对某一变量和方法具有访问权限的代码空间，表示变量或函数起作用的区域，指代了它们在什么样的上下文中执行，亦即上下文执行环境。每个执行环境都有一个与之关联的变量对象(variable object),环境中定义的所有变量和函数都保存在这个对象中。Javascript的作用域只有两种：全局作用域和本地作用域，本地作用域是按照函数来区分的。
 
 当代码在一个环境中执行时,会创建变量对象的一个作用域链(scope chain)。作用域链的用途,是 保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端,始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数,则将其活动对象(activation object)作为变量对象。活动对象在最开始时只包含一个变量,即arguments对象(这个对象在全局环境中是不存在的)。作用域链中的下一个变量对象来自包含(外部)环境,而再下一个变量对象则来自下一个包含环境。这样,一直延续到全局执行环境;全局执行环境的变量对象始终都是作用域链中的最后一个对象。
@@ -368,6 +413,16 @@ function onBack(res) {
 
 在JavaScript中，每个对象都有一个指向它的原型（prototype）对象的内部链接（proto）。这个原型对象又有自己的原型，直到某个对象的原型为null为止（也就是不再有原型指向）。这种一级一级的链结构就称为原型链（prototype chain）。当查找一个对象的属性时，JavaScript会向上遍历原型链，直到找到给定名称的属性为止;到查找到达原型链的顶部（Object.prototype），仍然没有找到指定的属性，就会返回undefined。
 
+### js bind 实现机制？
+
+```js®
+function bind(fn, context){
+  return function (){
+     return fn.apply(context, arguments);
+  }
+}
+```
+
 ### 请简述AJAX及基本步骤？
 
 1. 初始化ajax对象
@@ -387,14 +442,91 @@ xhr.onload =function(){}
 xhr.send();
 ```
 
-### HTTP 状态消息 200 302 304 403 404 500 分别表示什么？
+## <div id="vue">[:top:](#catalog) Vue部分</div>
 
-1. 200：请求已成功，请求所希望的响应头或数据体将随此响应返回。
-1. 302：请求的资源临时从不同的 URI 响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。只有在 Cache-Control 或 Expires 中进行了指定的情况下，这个响应才是可缓存的。
-1. 304：如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。304 响应禁止包含消息体，因此始终以消息头后的第一个空行结尾。
-1. 403：服务器已经理解请求，但是拒绝执行它。
-1. 404：请求失败，请求所希望得到的资源未被在服务器上发现。
-1. 500：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器端的源代码出现错误时出现。
+### 请详细说下你对vue生命周期的理解？
+
+答：总共分为8个阶段创建前/后，载入前/后，更新前/后，销毁前/后。
+
+创建前/后： 在beforeCreated阶段，vue实例的挂载元素$el和数据对象data都为undefined，还未初始化。在created阶段，vue实例的数据对象data有了，$el还没有。
+
+载入前/后：在beforeMount阶段，vue实例的$el和data都初始化了，但还是挂载之前为虚拟的dom节点，data.message还未替换。在mounted阶段，vue实例挂载完成，data.message成功渲染。
+
+更新前/后：当data变化时，会触发beforeUpdate和updated方法。
+
+销毁前/后：在执行destroy方法后，对data的改变不会再触发周期函数，说明此时vue实例已经解除了事件监听以及和dom的绑定，但是dom结构依然存在
+
+### 组件间通信
+
+```text
+//1、父传子 （props down）
+    //1.父组件 发送
+        <son myName='zhangsan'>
+        </son>
+    //2.子组件 接受
+        到son组件：
+        Vue.component('son',{
+          props:['myName'],
+          template:`
+           <p>{{myName}}</p>
+          `
+        })
+//2、子与父通信 (events up)
+    //1.父组件 绑定
+    methods:{
+     handleEvent:function(msg){}
+    }
+    <son @customEvent="handleEvent"></son>
+    //2.子组件 触发
+    //子组件内部：
+    this.$emit(‘customEvent’,100);
+
+//3、ref(reference 引用/参考 外号)
+//帮助在父组件中 得到子组件中的数据、方法。
+    //1.指定ref属性
+    <son ref="mySon"></son>
+    //2.根据ref得到子组件实例
+    this.$refs.mySon
+
+//4、$parent
+    this.$parent得到父组件的实例
+
+//5、兄弟组件通信
+    //1.new一个实例
+    var bus = new Vue();
+    //2.接收方
+    bus.$on('eventName',function(msg){})
+    //3.发送方
+    bus.$emit('eventName',123);
+```
+
+### Vue如何实现双向绑定？
+
+原理：通过`Object.defineProperty`实现
+
+```html
+<body>
+<div id="app">
+    <input type="text" id="txt">
+    <p id="show-txt"></p>
+</div>
+<script>
+    var obj = {}
+    Object.defineProperty(obj, 'txt', {
+        get: function () {
+            return obj
+        },
+        set: function (newValue) {
+            document.getElementById('txt').value = newValue
+            document.getElementById('show-txt').innerHTML = newValue
+        }
+    })
+    document.addEventListener('keyup', function (e) {
+        obj.txt = e.target.value
+    })
+</script>
+</body>
+```
 
 ## <div id="code">[:top:](#catalog) JS编程部分</div>
 
