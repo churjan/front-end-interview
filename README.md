@@ -304,6 +304,8 @@ typeof function a(){} //function
 
 this引用的是函数执行的环境对象
 
+[试题测试](https://juejin.im/post/59aa71d56fb9a0248d24fae3)
+
 ### 事件流三个阶段
 
 1. 事件捕捉阶段：事件开始由顶层对象触发，然后逐级向下传播，直到目标的元素；
@@ -428,7 +430,7 @@ function onBack(res) {
 
 ### 什么是原型？
 
-每创建一个函数，函数上都有一个属性为prototype，它的值是一个对象。这个对象的作用在于当使用函数创建实例的时候，那么这些实例都会共享原型上的属性和方法。
+每创建一个函数，函数上都有一个属性为prototype，它的值是一个对象。这个对象的作用在于当使用函数创建实例的时候，那么这些实例都会共享这个对象上的属性和方法。
 
 ### 什么是原型链？
 
@@ -448,9 +450,8 @@ function bind(fn, context){
 
 1. 初始化ajax对象
 1. 连接地址，准备数据
-1. 发送请求
 1. 接收数据（正在接收，尚未完成）
-1. 接收数据完成
+1. 发送请求
 
 ```js
 //初始化ajax对象
@@ -458,7 +459,11 @@ var xhr = new XMLHttpRequest();
 //连接地址，准备数据
 xhr.open(“方式”,”地址”,是否为异步);
 //接收数据完成触发的事件
-xhr.onload =function(){}
+xhr.onreadystatechange =function(){
+    if(xhr.readyState===4&&xhr.status===200){
+    console.log(xhr.responseText)
+    }
+}
 //发送数据
 xhr.send();
 ```
