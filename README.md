@@ -440,13 +440,19 @@ function onBack(res) {
 
 ### js bind 实现机制？
 
-```js®
-function bind(fn, context){
-  return function (){
-     return fn.apply(context, arguments);
-  }
+```js
+Function.prototype.bind = function(context) {
+    var aArgs   = Array.prototype.slice.call(arguments, 1) //拿到除了context之外的预置参数序列
+    var that = this
+    return function() {
+        return that.apply(context, aArgs.concat(Array.prototype.slice.call(arguments)))
+        //绑定this同时将调用时传递的序列和预置序列进行合并
+    }
 }
 ```
+
+参考：  
+[手写一个bind](http://blog.csdn.net/qq_40479190/article/details/78324282#t1)
 
 ### 请简述AJAX及基本步骤？
 
