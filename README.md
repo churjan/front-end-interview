@@ -534,7 +534,12 @@ xhr.send();
     bus.$emit('eventName',123);
 ```
 
-### Vue如何实现双向绑定？
+### 说下你对mvvm的理解？双向绑定的理解？
+
+mvvm就是vm框架视图、m模型就是用来定义驱动的数据、v经过数据改变后的html、vm就是用来实现双向绑定
+双向绑定:一个变了另外一个跟着变了，例如：视图一个绑定了模型的节点有变化，模型对应的值会跟着变
+
+### Vue如何实现双向绑定？
 
 原理：通过`Object.defineProperty`实现
 
@@ -638,5 +643,15 @@ for(var i=0;i<str.length;i++){
 }
 for(key in obj){
     document.write(obj[key].value +'='+obj[key].count+'&nbsp;'); // a=4  b=3  c=4  d=2  f=1  g=1  h=1
+}
+```
+
+### 封装一个函数，参数是定时器的时间，.then执行回调函数。
+
+```js
+function sleep (time) {
+
+  return new Promise((resolve) => setTimeout(resolve, time));
+
 }
 ```
