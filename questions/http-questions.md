@@ -2,9 +2,9 @@
 
 ## 目录
 
-* [HTTP request报文结构是怎样的](#HTTP-request报文结构是怎样的)
-* [HTTP response报文结构是怎样的](#HTTP-response报文结构是怎样的)
-* [HTTP状态消息](#HTTP状态消息)
+* [HTTP request报文结构是怎样的](#http-request报文结构是怎样的)
+* [HTTP response报文结构是怎样的](#http-response报文结构是怎样的)
+* [HTTP状态消息](#http状态消息)
 
 ### HTTP request报文结构是怎样的
 
@@ -32,7 +32,7 @@ If-Modified-Since: Wed, 01 Sep 2004 13:24:52 GMT
 name=qiu&age=25
 ```
 
-[[↑] Back to top](#HTTP问题)
+[[↑] Back to top](#http问题)
 
 ### HTTP response报文结构是怎样的
 
@@ -59,7 +59,7 @@ Content-Type: text/html; charset=iso-8859-1
 {"name": "qiu", "age": 25}
 ```
 
-[[↑] Back to top](#HTTP问题)
+[[↑] Back to top](#http问题)
 
 ### HTTP状态消息
 
@@ -70,4 +70,4 @@ Content-Type: text/html; charset=iso-8859-1
 1. 404：请求失败，请求所希望得到的资源未被在服务器上发现。
 1. 500：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器端的源代码出现错误时出现。
 
-[[↑] Back to top](#HTTP问题)
+[[↑] Back to top](#http问题)
