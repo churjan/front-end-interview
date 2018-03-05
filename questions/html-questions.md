@@ -34,6 +34,6 @@
 易用性|需要程序员自己封装，源生的Cookie接口不友好|源生接口可以接受，亦可再次封装来对Object和Array有更好的支持|源生接口可以接受，亦可再次封装来对Object和Array有更好的支持
 
 参考:  
-https://segmentfault.com/a/1190000002723469
+[https://segmentfault.com/a/1190000002723469](https://segmentfault.com/a/1190000002723469)
 
 [[↑] Back to top](#html问题)
