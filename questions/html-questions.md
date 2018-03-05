@@ -3,7 +3,7 @@
 ## 目录
 
 * [重排和重绘](#重排和重绘)
-* [什么情况会触发重排和重绘](#什么情况会触发重排和重绘)
+* [什么情况会触发回流和重绘](#什么情况会触发回流和重绘)
 * [详说Cookie, LocalStorage与SessionStorage](#详说cookie-localstorage与sessionstorage)
 
 ### 重排和重绘
@@ -13,14 +13,25 @@
 
 [[↑] Back to top](#html问题)
 
-### 什么情况会触发重排和重绘
+### 什么情况会触发回流和重绘
 
-1. 添加、删除、更新`DOM`节点
-1. 通过`display: none`隐藏一个`DOM`节点-触发重排和重绘
-1. 通过`visibility: hidden`隐藏一个`DOM`节点-只触发重绘，因为没有几何变化
-1. 移动或者给页面中的`DOM`节点添加动画
-1. 添加一个样式表，调整样式属性
-1. 用户行为，例如调整窗口大小，改变字号，或者滚动。
+会导致回流的操作：
+
+1. 页面首次渲染
+1. 浏览器窗口大小发生改变
+1. 元素尺寸或位置发生改变
+1. 元素内容变化（文字数量或图片大小等等）
+1. 元素字体大小变化
+1. 添加或者删除可见的DOM元素
+1. 激活CSS伪类（例如：:hover）
+1. 查询某些属性或调用某些方法
+
+会导致回流的操作：
+
+当页面中元素样式的改变并不影响它在文档流中的位置时（例如：color、background-color、visibility等）。
+
+参考：  
+[https://juejin.im/post/5a9923e9518825558251c96a?utm_source=gold_browser_extension](https://juejin.im/post/5a9923e9518825558251c96a?utm_source=gold_browser_extension)
 
 [[↑] Back to top](#html问题)
 
