@@ -12,3 +12,8 @@
 1. [HTTP问题](questions/http-questions.md)
 1. [Web问题](questions/web-questions.md)
 1. [Coding问题](questions/coding-questions.md)
+
+## 额外篇
+
+1. [Promise 必知必会（十道题）](https://juejin.im/post/5a04066351882517c416715d)
+1. [十大经典排序算法总结（JavaScript描述）](https://juejin.im/post/57dcd394a22b9d00610c5ec8)
