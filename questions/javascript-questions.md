@@ -97,6 +97,9 @@ Function.prototype.emulateBind = function(context) {
 
 异步是指进程不需要一直等下去，而是继续执行下面的操作，不管其他进程的状态。当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率。
 
+参考：  
+[http://www.ruanyifeng.com/blog/2014/10/event-loop.html](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
+
 [[↑] Back to top](#javascript问题)
 
 ### js中的`new()`到底做了些什么
