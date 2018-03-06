@@ -6,6 +6,7 @@
 * [什么是闭包(closure),为什么要使用它](#什么是闭包closure为什么要使用它)
 * [什么是作用域,什么是作用域链](#什么是作用域什么是作用域链)
 * [函数中的this指向什么](#函数中的this指向什么)
+* [js bind 实现机制](#js-bind-实现机制)
 * [事件流三个阶段](#事件流三个阶段)
 * [简述同步与异步的区别](#简述同步与异步的区别)
 * [js中的`new()`到底做了些什么](#js中的new到底做了些什么)
@@ -15,7 +16,6 @@
 * [手写移动端字体自适应方案](#手写移动端字体自适应方案)
 * [什么是原型](#什么是原型)
 * [什么是原型链](#什么是原型链)
-* [js bind 实现机制](#js-bind-实现机制)
 * [请简述AJAX及基本步骤](#请简述ajax及基本步骤)
 
 ### js中有多少个内置类型
@@ -60,6 +60,24 @@ typeof function a(){} //function
 this引用的是函数执行的环境对象
 
 [试题测试](https://juejin.im/post/59aa71d56fb9a0248d24fae3)
+
+[[↑] Back to top](#javascript问题)
+
+### js bind 实现机制
+
+```js
+Function.prototype.emulateBind = function(context) {
+    var aArgs = Array.prototype.slice.call(arguments, 1) //拿到除了context之外的预置参数序列
+    var that = this
+    return function() {
+        return that.apply(context, aArgs.concat(Array.prototype.slice.call(arguments)))
+        //绑定this同时将调用时传递的序列和预置序列进行合并
+    }
+}
+```
+
+参考：  
+[http://blog.csdn.net/qq_40479190/article/details/78324282#t1](http://blog.csdn.net/qq_40479190/article/details/78324282#t1)
 
 [[↑] Back to top](#javascript问题)
 
@@ -207,24 +225,6 @@ function onBack(res) {
 ### 什么是原型链
 
 在JavaScript中，每个对象都有一个指向它的原型（prototype）对象的内部链接（proto）。这个原型对象又有自己的原型，直到某个对象的原型为null为止（也就是不再有原型指向）。这种一级一级的链结构就称为原型链（prototype chain）。当查找一个对象的属性时，JavaScript会向上遍历原型链，直到找到给定名称的属性为止;到查找到达原型链的顶部（Object.prototype），仍然没有找到指定的属性，就会返回undefined。
-
-[[↑] Back to top](#javascript问题)
-
-### js bind 实现机制
-
-```js
-Function.prototype.bind = function(context) {
-    var aArgs   = Array.prototype.slice.call(arguments, 1) //拿到除了context之外的预置参数序列
-    var that = this
-    return function() {
-        return that.apply(context, aArgs.concat(Array.prototype.slice.call(arguments)))
-        //绑定this同时将调用时传递的序列和预置序列进行合并
-    }
-}
-```
-
-参考：  
-[http://blog.csdn.net/qq_40479190/article/details/78324282#t1](http://blog.csdn.net/qq_40479190/article/details/78324282#t1)
 
 [[↑] Back to top](#javascript问题)
 
