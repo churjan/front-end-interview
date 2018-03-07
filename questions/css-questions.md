@@ -120,9 +120,9 @@ body { font-family: Microsoft Yahei,SimSun,Helvetica; }
 
 [[↑] Back to top](#css问题)
 
-### 什么是BFC 如何触发BFC
+### 什么是BFC如何触发BFC
 
-BFC全称为block formatting context,中文为“块级格式化上下文”。具有 BFC特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且BFC具有普通容器所没有的一些特性。
+BFC全称为block formatting context,中文为“块级格式化上下文”，它是指一个独立的块级渲染区域，只有Block-level Box参与，该区域拥有一套渲染规则来约束块级盒子的布局，且与区域外部无关。具有BFC特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且BFC具有普通容器所没有的一些特性。
 
 触发 BFC
 
