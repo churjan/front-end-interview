@@ -1,13 +1,6 @@
 # Coding问题
 
-## 目录
-
-* [考察JS变量声明 作用域 原型链](#考察js变量声明-作用域-原型链)
-* [深拷贝](#深拷贝)
-* [统计字符串中字母个数或统计最多字母](#统计字符串中字母个数或统计最多字母)
-* [封装一个函数,参数是定时器的时间,`.then`执行回调函数](#封装一个函数参数是定时器的时间then执行回调函数)
-
-### 考察JS变量声明 作用域 原型链
+## 请问上述代码在浏览器环境下，输出结果是多少
 
 ```js
 function Foo() {
@@ -36,15 +29,13 @@ getName();
 new Foo.getName();
 new Foo().getName();
 new new Foo().getName();
-
-请问上述代码在浏览器环境下，输出结果是多少
 ```
 
-参考答案：[一道颇有难度的JavaScript题](https://cnodejs.org/topic/5867d50d5eac96bb04d3e302)
+参考答案：
 
-[[↑] Back to top](#coding问题)
+* [一道颇有难度的JavaScript题](https://cnodejs.org/topic/5867d50d5eac96bb04d3e302)
 
-### 深拷贝
+## 深拷贝
 
 ```js
 function clone(obj) {
@@ -66,9 +57,7 @@ function clone(obj) {
 }
 ```
 
-[[↑] Back to top](#coding问题)
-
-### 统计字符串中字母个数或统计最多字母
+## 统计字符串中字母个数或统计最多字母
 
 ```js
 var str = "aaaabbbccccddfgh";
@@ -88,9 +77,7 @@ for(key in obj){
 }
 ```
 
-[[↑] Back to top](#coding问题)
-
-### 封装一个函数,参数是定时器的时间,`.then`执行回调函数
+## 封装一个函数,参数是定时器的时间,`.then`执行回调函数
 
 ```js
 function sleep (time) {
@@ -100,4 +87,24 @@ function sleep (time) {
 }
 ```
 
-[[↑] Back to top](#coding问题)
+## 请输出一下代码的输出结果
+
+```js
+setTimeout(function(){
+    console.log(1)
+},0);
+new Promise(function(resolve){
+    console.log(2)
+    for( var i=100000 ; i>0 ; i-- ){
+        i==1 && resolve()
+    }
+    console.log(3)
+}).then(function(){
+    console.log(4)
+});
+console.log(5);
+```
+
+参考：
+
+* [https://juejin.im/entry/5aa0de54518825556b6c574b?utm_source=gold_browser_extension](https://juejin.im/entry/5aa0de54518825556b6c574b?utm_source=gold_browser_extension)
