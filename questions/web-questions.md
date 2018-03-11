@@ -4,7 +4,7 @@
 
 * [请描述一个网页从开始请求到最终显示的完整过程](#请描述一个网页从开始请求到最终显示的完整过程)
 * [项目中做过哪些优化](#项目中做过哪些优化)
-* [函数节流实现原理](#函数节流实现原理)
+* [函数节流和防抖实现原理](#函数节流和防抖实现原理)
 
 ### 请描述一个网页从开始请求到最终显示的完整过程
 
@@ -42,27 +42,37 @@
 
 [[↑] Back to top](#web综合问题)
 
-### 函数节流实现原理
+### 函数节流和防抖实现原理
 
 ```js
-function throttle(method, context) {
-     clearTimeout(methor.tId);
-     method.tId = setTimeout(function(){
-         method.call(context);
-     }， 100);
- }
-```
+//节流
+function throttle(fn, interval = 300) {
+  let isRun = true;
+  return function () {
+      if (!isRun) return;
+      isRun = false;
+      setTimeout(() => {
+          fn.apply(this, arguments);
+          isRun = true;
+      }, interval);
+  };
+}
 
-调用
-
-```js
-window.onresize = function(){
-    throttle(myFunc);
+//防抖
+function debounce(fn, interval = 300) {
+    let timeout = null;
+    return function () {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            fn.apply(this, arguments);
+        }, interval);
+    };
 }
 ```
 
 参考：
 
-* [https://segmentfault.com/a/1190000009472348](https://segmentfault.com/a/1190000009472348)
+* [http://justclear.gitlab.io/throttle-and-debounce/](http://justclear.gitlab.io/throttle-and-debounce/)
+* [https://juejin.im/post/5a35ed25f265da431d3cc1b1](https://juejin.im/post/5a35ed25f265da431d3cc1b1)
 
 [[↑] Back to top](#web综合问题)
