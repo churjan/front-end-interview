@@ -4,6 +4,7 @@
 
 * [请描述一个网页从开始请求到最终显示的完整过程](#请描述一个网页从开始请求到最终显示的完整过程)
 * [项目中做过哪些优化](#项目中做过哪些优化)
+* [函数节流实现原理](#函数节流实现原理)
 
 ### 请描述一个网页从开始请求到最终显示的完整过程
 
@@ -38,5 +39,30 @@
 1. 带宽,域名解析, 多域名解析等
 1. 页面做服务端渲染,减小对浏览器的依赖(不用客户端解析)
 1. 渐进升级,比如引入 HTTP2(多路复用,头部压缩这些可以明显加快加载速度)
+
+[[↑] Back to top](#web综合问题)
+
+### 函数节流实现原理
+
+```js
+function throttle(method, context) {
+     clearTimeout(methor.tId);
+     method.tId = setTimeout(function(){
+         method.call(context);
+     }， 100);
+ }
+```
+
+调用
+
+```js
+window.onresize = function(){
+    throttle(myFunc);
+}
+```
+
+参考：
+
+* [https://segmentfault.com/a/1190000009472348](https://segmentfault.com/a/1190000009472348)
 
 [[↑] Back to top](#web综合问题)
