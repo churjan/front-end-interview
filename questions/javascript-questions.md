@@ -233,24 +233,20 @@ function onBack(res) {
 
 ### 请简述AJAX及基本步骤
 
-1. 初始化ajax对象
-1. 连接地址，准备数据
-1. 接收数据（正在接收，尚未完成）
-1. 发送请求
-
 ```js
-//初始化ajax对象
+//创建 XMLHttpRequest 对象
 var xhr = new XMLHttpRequest();
-//连接地址，准备数据
-xhr.open(“方式”,”地址”,是否为异步);
-//接收数据完成触发的事件
-xhr.onreadystatechange =function(){
-    if(xhr.readyState===4&&xhr.status===200){
-    console.log(xhr.responseText)
-    }
-}
-//发送数据
-xhr.send();
+//规定请求的类型、URL 以及是否异步处理请求。
+xhr.open('GET',url,true);
+//发送信息至服务器时内容编码类型
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//发送请求
+xhr.send(null);  
+//接受服务器响应数据
+xhr.onreadystatechange = function () {
+  if (obj.readyState == 4 && (obj.status == 200 || obj.status == 304)) {
+  }
+};
 ```
 
 [[↑] Back to top](#javascript问题)
