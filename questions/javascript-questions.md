@@ -67,13 +67,20 @@ this引用的是函数执行的环境对象
 
 ```js
 Function.prototype.emulateBind = function(context) {
-    var aArgs = Array.prototype.slice.call(arguments, 1) //拿到除了context之外的预置参数序列
-    var that = this
+    let aArgs = Array.prototype.slice.call(arguments, 1); //拿到除了context之外的预置参数序列
+    let that = this; //保存this，即调用bind方法的目标函数
     return function() {
         return that.apply(context, aArgs.concat(Array.prototype.slice.call(arguments)))
         //绑定this同时将调用时传递的序列和预置序列进行合并
     }
 }
+
+//引用
+function a(){
+  console.log(this.id);
+}
+b={id:'b'};
+let _a=a.bind(b);
 ```
 
 参考：  
