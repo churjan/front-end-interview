@@ -17,3 +17,4 @@
 
 1. [Promise 必知必会（十道题）](https://juejin.im/post/5a04066351882517c416715d)
 1. [十大经典排序算法总结（JavaScript描述）](https://juejin.im/post/57dcd394a22b9d00610c5ec8)
+1. [简述JavaScript模块化编程（一）](https://www.jianshu.com/p/3fbaa3ae70e6/)
