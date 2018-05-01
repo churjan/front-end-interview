@@ -249,7 +249,6 @@ function makeRequest(url) {
       if (xhr.readyState == 4) {
           if(xhr.status==200){
               let res=JSON.parse(xhr.responseText);
-              console.log(res,111);
           }else{
               alert('err');
           }
