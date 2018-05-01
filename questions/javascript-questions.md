@@ -241,19 +241,22 @@ function onBack(res) {
 ### 请简述AJAX及基本步骤
 
 ```js
-//创建 XMLHttpRequest 对象
-var xhr = new XMLHttpRequest();
-//规定请求的类型、URL 以及是否异步处理请求。
-xhr.open('GET',url,true);
-//发送信息至服务器时内容编码类型
-xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//发送请求
-xhr.send(null);  
-//接受服务器响应数据
-xhr.onreadystatechange = function () {
-  if (obj.readyState == 4 && (obj.status == 200 || obj.status == 304)) {
-  }
-};
+function makeRequest(url) {
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.send(null);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4) {
+          if(xhr.status==200){
+              let res=JSON.parse(xhr.responseText);
+              console.log(res,111);
+          }else{
+              alert('err');
+          }
+      }
+  };
+}
+makeRequest(url);
 ```
 
 [[↑] Back to top](#javascript问题)
