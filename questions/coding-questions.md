@@ -1,5 +1,40 @@
 # Coding问题
 
+## 实现一个方法，找出一个数组中重复的元素
+
+```js
+//举例
+
+arr = [1,2,3,4,1,1,2,4,4]
+
+//输出 [1,2,4]
+```
+
+```js
+Array.prototype.unique=function(){
+  let array=this;
+  let filter_array=[];
+  array.forEach(item=>{
+    if(!filter_array.includes(item)){
+      filter_array.push(item)
+    }
+  })
+  return filter_array;
+}
+```
+
+## 将这段英文this is a pen首字母大写
+
+```js
+function bigLetter(str){
+  bigStr = str.toLowerCase().replace(/\b\w+\b/g, function(word){
+  return word.substring(0,1).toUpperCase()+word.substring(1);
+  });
+  return bigStr; 
+}
+
+```
+
 ## 请问上述代码在浏览器环境下，输出结果是多少
 
 ```js
