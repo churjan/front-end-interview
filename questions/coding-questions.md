@@ -10,13 +10,11 @@ const fibo=(n)=>n>=2?fibo(n-1)+fibo(n-2):n;
 // fibo(3) ==> fibo(2)+fibo(1) ==> fibo(1)+fibo(0)+1 ==> 1+0+1
 ```
 
-## 实现一个方法，找出一个数组中重复的元素
+## 找出一个数组中重复的元素
 
 ```js
 //举例
-
 arr = [1,2,3,4,1,1,2,4,4]
-
 //输出 [1,2,4]
 ```
 
@@ -33,7 +31,9 @@ Array.prototype.unique=function(){
 }
 ```
 
-## 将这段英文this is a pen首字母大写
+## 首字母大写
+
+`this is a pen => This Is A Pen`
 
 ```js
 function bigLetter(str){
@@ -43,6 +43,26 @@ function bigLetter(str){
   return bigStr; 
 }
 
+```
+
+## 统计字符串中字母个数或统计最多字母
+
+```js
+var str = "aaaabbbccccddfgh";
+var obj  = {};
+for(var i=0;i<str.length;i++){
+    var v = str.charAt(i);
+    if(obj[v]){
+        obj[v].count++;
+    }else{
+        obj[v] = {};
+        obj[v].count = 1;
+        obj[v].value = v;
+    }
+}
+for(key in obj){
+    document.write(obj[key].value +'='+obj[key].count+'&nbsp;'); // a=4  b=3  c=4  d=2  f=1  g=1  h=1
+}
 ```
 
 ## 请问上述代码在浏览器环境下，输出结果是多少
@@ -99,26 +119,6 @@ function clone(obj) {
     }else{ //不为对象，直接把值返回
         return obj;
     }
-}
-```
-
-## 统计字符串中字母个数或统计最多字母
-
-```js
-var str = "aaaabbbccccddfgh";
-var obj  = {};
-for(var i=0;i<str.length;i++){
-    var v = str.charAt(i);
-    if(obj[v]){
-        obj[v].count++;
-    }else{
-        obj[v] = {};
-        obj[v].count = 1;
-        obj[v].value = v;
-    }
-}
-for(key in obj){
-    document.write(obj[key].value +'='+obj[key].count+'&nbsp;'); // a=4  b=3  c=4  d=2  f=1  g=1  h=1
 }
 ```
 
