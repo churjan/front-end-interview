@@ -1,6 +1,14 @@
 # Coding试题
 
-## 求契波那切数列第n个数的值
+## 目录
+
+* [求契波那切数列第n个数的值](#求契波那切数列第n个数的值)
+* [找出一个数组中重复的元素](#找出一个数组中重复的元素)
+* [首字母大写](#首字母大写)
+* [统计字符串中字母个数或统计最多字母](#统计字符串中字母个数或统计最多字母)
+
+
+### 求契波那切数列第n个数的值
 
 ```js
 //契波那切数列  1、1、2、3、5、8......,从第三个数开始，每个数都是前两个数的和
@@ -10,7 +18,9 @@ const fibo=(n)=>n>=2?fibo(n-1)+fibo(n-2):n;
 // fibo(3) ==> fibo(2)+fibo(1) ==> fibo(1)+fibo(0)+1 ==> 1+0+1
 ```
 
-## 找出一个数组中重复的元素
+[[↑] Back to top](#Coding试题)
+
+### 找出一个数组中重复的元素
 
 ```js
 //举例
@@ -31,7 +41,9 @@ Array.prototype.unique=function(){
 }
 ```
 
-## 首字母大写
+[[↑] Back to top](#Coding试题)
+
+### 首字母大写
 
 `this is a pen => This Is A Pen`
 
@@ -45,7 +57,9 @@ function bigLetter(str){
 
 ```
 
-## 统计字符串中字母个数或统计最多字母
+[[↑] Back to top](#Coding试题)
+
+### 统计字符串中字母个数或统计最多字母
 
 ```js
 var str = "aaaabbbccccddfgh";
@@ -65,7 +79,9 @@ for(key in obj){
 }
 ```
 
-## 请问上述代码在浏览器环境下，输出结果是多少
+[[↑] Back to top](#Coding试题)
+
+### 请问上述代码在浏览器环境下，输出结果是多少
 
 ```js
 function Foo() {
@@ -100,7 +116,7 @@ new new Foo().getName();
 
 * [一道颇有难度的JavaScript题](https://cnodejs.org/topic/5867d50d5eac96bb04d3e302)
 
-## 深拷贝
+### 深拷贝
 
 ```js
 function clone(obj) {
@@ -122,7 +138,7 @@ function clone(obj) {
 }
 ```
 
-## 封装一个函数,参数是定时器的时间,`.then`执行回调函数
+### 封装一个函数,参数是定时器的时间,`.then`执行回调函数
 
 ```js
 function sleep (time) {
@@ -132,7 +148,7 @@ function sleep (time) {
 }
 ```
 
-## 请输出一下代码的输出结果
+### 请输出一下代码的输出结果
 
 ```js
 setTimeout(function(){
