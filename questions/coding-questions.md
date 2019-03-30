@@ -1,4 +1,4 @@
-# Coding试题
+# Coding问题
 
 ## 目录
 
@@ -18,7 +18,7 @@ const fibo=(n)=>n>=2?fibo(n-1)+fibo(n-2):n;
 // fibo(3) ==> fibo(2)+fibo(1) ==> fibo(1)+fibo(0)+1 ==> 1+0+1
 ```
 
-[[↑] Back to top](#Coding试题)
+[[↑] Back to top](#Coding问题)
 
 ### 找出一个数组中重复的元素
 
@@ -41,7 +41,7 @@ Array.prototype.unique=function(){
 }
 ```
 
-[[↑] Back to top](#Coding试题)
+[[↑] Back to top](#Coding问题)
 
 ### 首字母大写
 
@@ -57,7 +57,7 @@ function bigLetter(str){
 
 ```
 
-[[↑] Back to top](#Coding试题)
+[[↑] Back to top](#Coding问题)
 
 ### 统计字符串中字母个数或统计最多字母
 
@@ -79,7 +79,7 @@ for(key in obj){
 }
 ```
 
-[[↑] Back to top](#Coding试题)
+[[↑] Back to top](#Coding问题)
 
 ### 请问上述代码在浏览器环境下，输出结果是多少
 
