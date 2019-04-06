@@ -13,27 +13,6 @@
 
 </details>
 
-### 找出一个数组中重复的元素
-
-```js
-//举例
-arr = [1,2,3,4,1,1,2,4,4]
-//输出 [1,2,4]
-```
-
-```js
-Array.prototype.unique=function(){
-  let array=this;
-  let filter_array=[];
-  array.forEach(item=>{
-    if(!filter_array.includes(item)){
-      filter_array.push(item)
-    }
-  })
-  return filter_array;
-}
-```
-
 ### 首字母大写
 
 `this is a pen => This Is A Pen`
