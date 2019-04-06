@@ -2,11 +2,17 @@
 
 ```js
 //契波那切数列  1、1、2、3、5、8......,从第三个数开始，每个数都是前两个数的和
-const fibo=(n)=>n>2?fibo(n-1)+fibo(n-2):n;
-// fibo(1) ==> 1
-// fibo(2) ==> fibo(1)+fibo(0) ==> 1+0;
-// fibo(3) ==> fibo(2)+fibo(1) ==> fibo(1)+fibo(0)+1 ==> 1+0+1
 ```
+
+<details>
+  <summary>参考答案</summary>
+
+  ```js
+  const fibo=(n)=>n>2?fibo(n-1)+fibo(n-2):n;
+  ```
+
+</details>
+
 ### 找出一个数组中重复的元素
 
 ```js
