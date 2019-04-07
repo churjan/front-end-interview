@@ -71,7 +71,7 @@ function debounce(cb,delay=300){
   }
 }
 
-//接口
+//节流
 function throttle(cb,interval=300){
   let timer;
   return function(...args){
@@ -82,7 +82,6 @@ function throttle(cb,interval=300){
       }, interval)
     }
   }
-
 }
 ```
 
