@@ -36,6 +36,8 @@ typeof {n:42} //object
 typeof function a(){} //function
 ```
 
+类型判断终极方法 `Object.prototype.toString`
+
 [[↑] Back to top](#javascript问题)
 
 ### 什么是闭包(closure),为什么要使用它
