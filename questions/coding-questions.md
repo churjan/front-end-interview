@@ -28,7 +28,12 @@ function bigLetter(str){
 
 </details>
 
-### 统计字符串中字母个数或统计最多字母
+### 统计字符串中字母个数
+
+`例：统计字符串 aaaabbbccccddfgh 中字母个数`
+
+<details>
+  <summary>参考答案</summary>
 
 ```js
 let str='aaaabbbccccddfgh';
@@ -37,12 +42,14 @@ Array.from(str).forEach(char=>{
   if(!obj[char]){
     obj[char]={
       count:1,
-      val:char
+      name:char
     }
   }else{
     obj[char].count++;
   }
 })
-let result=Object.values(obj).map(item=>`${item.val}=${item.count}`).join(' ');
+let result=Object.values(obj).map(item=>`${item.name}=${item.count}`).join('\n');
 console.log(result)
 ```
+
+</details>
