@@ -53,3 +53,39 @@ console.log(result)
 ```
 
 </details>
+
+### 手写防抖，节流
+
+<details>
+  <summary>参考答案</summary>
+
+```js
+//防抖
+function debounce(cb,delay=300){
+  let timer;
+  return function(...args){
+    clearTimeout(timer);
+    timer=setTimeout(()=>{
+      cb.apply(this,args);
+    },delay)
+  }
+}
+
+//接口
+function throttle(cb,interval=300){
+  let timer;
+  return function(...args){
+    if(!timer){
+      timer = setTimeout(() => {
+          fn.apply(this, args);
+          timer = null;
+      }, interval)
+    }
+  }
+
+}
+```
+
+</details>
+
+
