@@ -113,17 +113,18 @@ let _a=a.bind(b);
 
 ### js中的`new()`到底做了些什么
 
-1. 创建一个新对象
-1. 将构造函数的作用域赋给新对象(因此 this 就指向了这个新对象)
+1. 创建一个新的空对象
+1. 将this绑定到该对象
 1. 添加一个名为__proto__的新属性，并且指向构造函数的原型(prototype)
-1. 执行构造函数中的代码(为这个新对象添加属性)
-1. 返回新对象
+1. 返回该this对象
 
 ```js
 var obj  = {};
 obj.__proto__ = Base.prototype;
 Base.call(obj);
 ```
+
+参考：https://juejin.im/post/59eb1dee6fb9a0450e75427e
 
 [[↑] Back to top](#javascript问题)
 
