@@ -6,7 +6,7 @@
 * [如何垂直居中一个元素](#如何垂直居中一个元素)
 * [字体font-family](#字体font-family)
 * [什么是BFC 如何触发BFC](#什么是bfc-如何触发bfc)
-* [请写出圣杯布局和双飞翼布局](#请写出圣杯布局和双飞翼布局)
+* [请写出三列自适应布局](#请写出三列自适应布局)
 
 ### css的权重优先级
 
@@ -141,9 +141,100 @@ BFC全称为block formatting context,中文为“块级格式化上下文”，�
 
 [[↑] Back to top](#css问题)
 
-### 请写出圣杯布局和双飞翼布局
+### 请写出三列自适应布局
 
-参考：  
-[https://segmentfault.com/a/1190000013301463](https://segmentfault.com/a/1190000013301463)
+```html
+//方法一：左右浮动+中间100%宽度
+<style type="text/css">
+.container {
+  padding-left: 200px;
+  padding-right: 150px;
+  overflow: hidden;
+}
+.container div {
+    height: 150px;
+    line-height: 150px;
+    float: left;
+}
+.center {
+    width: 100%;
+    background-color: #50bf3c;
+}
+.left {
+    width: 200px;
+    margin-left: -100%;
+    position: relative;
+    right: 200px;
+    background-color: #ff5722;
+}
+.right {
+    width: 150px;
+    margin-right: -150px;
+    background-color: #2196f3;
+}
+</style>
+<div class="container">
+  <div class="center">中间自定义</div>
+  <div class="left">左侧定宽</div>
+  <div class="right">右侧定宽</div>
+</div>
+
+//绝对定位+中间不给宽度
+<style type="text/css">
+.container {
+  position: relative;
+}
+.container div {
+  height: 150px;
+  line-height: 150px;
+}
+.center {
+  background-color: #50bf3c;
+  margin-left: 200px;
+  margin-right: 150px;
+}
+.left {
+  width: 200px;
+  background-color: #ff5722;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.right {
+  width: 150px;
+  background-color: #2196f3;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+</style>
+<div class="container">
+  <div class="center">中间自适应</div>
+  <div class="left">左侧定宽</div>
+  <div class="right">右侧定宽</div>
+</div>
+
+方法三：flex
+<style type="text/css">
+.container{
+  display:flex;
+}
+.left{
+  flex-basis:200px;
+}
+.right{
+  flex-basis:150px;
+}
+.center{
+  flex-grow:1;
+}
+</style>
+<div class="container">
+  <div class="left">左侧定宽</div>
+  <div class="center">中间自适应</div>
+  <div class="right">右侧定宽</div>
+</div>
+
+```
 
 [[↑] Back to top](#css问题)
