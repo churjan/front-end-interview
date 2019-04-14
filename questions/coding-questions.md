@@ -1,6 +1,8 @@
 ### 求契波那切数列第n个数的值
 
-`契波那切数列  1、1、2、3、5、8......,从第三个数开始，每个数都是前两个数的和`
+```text
+契波那切数列  1、1、2、3、5、8......,从第三个数开始，每个数都是前两个数的和
+```
 
 <details>
   <summary>参考答案</summary>
@@ -13,7 +15,9 @@
 
 ### 首字母大写
 
-`this is a pen => This Is A Pen`
+```text
+this is a pen => This Is A Pen
+```
 
 <details>
   <summary>参考答案</summary>
@@ -30,7 +34,9 @@ function bigLetter(str){
 
 ### 统计字符串中字母个数
 
-`例：统计字符串 aaaabbbccccddfgh 中字母个数`
+```text
+例：统计字符串 aaaabbbccccddfgh 中字母个数
+```
 
 <details>
   <summary>参考答案</summary>
