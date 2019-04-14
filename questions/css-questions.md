@@ -143,8 +143,11 @@ BFC全称为block formatting context,中文为“块级格式化上下文”，�
 
 ### 请写出三列自适应布局
 
+e.g. 左边宽200px，右边宽150，中间自适应
+
 ```html
 //方法一：左右浮动+中间100%宽度
+//圣杯布局
 <style type="text/css">
 .container {
   padding-left: 200px;
@@ -152,29 +155,71 @@ BFC全称为block formatting context,中文为“块级格式化上下文”，�
   overflow: hidden;
 }
 .container div {
-    height: 150px;
-    line-height: 150px;
-    float: left;
+  height: 150px;
+  line-height: 150px;
+  float: left;
 }
 .center {
-    width: 100%;
-    background-color: #50bf3c;
+  width: 100%;
+  background-color: #50bf3c;
 }
 .left {
-    width: 200px;
-    margin-left: -100%;
-    position: relative;
-    right: 200px;
-    background-color: #ff5722;
+  width: 200px;
+  margin-left: -100%;
+  position: relative;
+  left: -200px;
+  background-color: #ff5722;
 }
 .right {
-    width: 150px;
-    margin-right: -150px;
-    background-color: #2196f3;
+  width: 150px;
+  margin-left: -150px;
+  position: relative;
+  left: 150px;
+  background-color: #2196f3;
 }
 </style>
 <div class="container">
   <div class="center">中间自定义</div>
+  <div class="left">左侧定宽</div>
+  <div class="right">右侧定宽</div>
+</div>
+
+//双飞翼布局
+<style type="text/css">
+.container {
+  overflow: hidden;
+}
+.container div {
+  height: 150px;
+  line-height: 150px;
+}
+.center-wrap{
+  width:100%;
+  float: left;
+}
+.center {
+  margin-left:200px;
+  margin-right:150px;
+  background-color: #50bf3c;
+}
+
+.left {
+  width: 200px;
+  margin-left: -100%;
+  background-color: #ff5722;
+  float: left;
+}
+.right {
+  width: 150px;
+  margin-left: -150px;
+  background-color: #2196f3;
+  float: left;
+}
+</style>
+<div class="container">
+  <div class="center-wrap">
+      <div class="center">中间自定义</div>
+  </div>
   <div class="left">左侧定宽</div>
   <div class="right">右侧定宽</div>
 </div>
