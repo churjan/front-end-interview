@@ -4,8 +4,7 @@
 
 * [css的权重优先级](#css的权重优先级)
 * [如何垂直居中一个元素](#如何垂直居中一个元素)
-* [字体font-family](#字体font-family)
-* [什么是BFC 如何触发BFC](#什么是bfc-如何触发bfc)
+* [什么是BFC?如何触发BFC](#什么是bfc如何触发bfc)
 * [请写出三列自适应布局](#请写出三列自适应布局)
 
 ### css的权重优先级
@@ -105,29 +104,7 @@
 
 [[↑] Back to top](#css问题)
 
-### 字体font-family
-
-```text
-@ 宋体      SimSun
-@ 黑体      SimHei
-@ 微信雅黑   Microsoft Yahei
-@ 微软正黑体 Microsoft JhengHei
-@ 新宋体    NSimSun
-@ 新细明体  MingLiU
-@ 细明体    MingLiU
-@ 标楷体    DFKai-SB
-@ 仿宋     FangSong
-@ 楷体     KaiTi
-@ 仿宋_GB2312  FangSong_GB2312
-@ 楷体_GB2312  KaiTi_GB2312  
-@
-@ 说明：中文字体多数使用宋体、雅黑，英文用Helvetica
-body { font-family: Microsoft Yahei,SimSun,Helvetica; }
-```
-
-[[↑] Back to top](#css问题)
-
-### 什么是BFC如何触发BFC
+### 什么是BFC?如何触发BFC
 
 BFC全称为block formatting context,中文为“块级格式化上下文”，它是指一个独立的块级渲染区域，只有Block-level Box参与，该区域拥有一套渲染规则来约束块级盒子的布局，且与区域外部无关。具有BFC特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且BFC具有普通容器所没有的一些特性。
 
