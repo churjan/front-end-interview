@@ -87,4 +87,27 @@ function throttle(cb,interval=300){
 
 </details>
 
+### 写一个sum方法，可以实现以下两种调用方式
+
+```js
+console.log(sum(2,3)) //5
+console.log(sum(2)(3)) //5
+```
+
+<details>
+  <summary>参考答案</summary>
+
+  ```js
+    const sum=function(x,y){
+      if(y===undefined){
+        return function(y){
+          return x+y;
+        }
+      }else{
+        return x+y;
+      }
+    }
+  ```
+
+<details>
 
