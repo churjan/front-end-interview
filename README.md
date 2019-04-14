@@ -4,12 +4,13 @@
 
 ## 目录
 
-1. [HTML问题](/questions/html-questions.md)
-1. [CSS问题](/questions/css-questions.md)
-1. [JavaScript问题](/questions/javascript-questions.md)
-1. [Vue问题](/questions/vue-questions.md)
-1. [HTTP问题](/questions/http-questions.md)
-1. [Coding问题](/questions/coding-questions.md)
+1. [HTML问题](questions/html-questions.md)
+1. [CSS问题](questions/css-questions.md)
+1. [JavaScript问题](questions/javascript-questions.md)
+1. [Vue问题](questions/vue-questions.md)
+1. [HTTP问题](questions/http-questions.md)
+1. [Coding问题](questions/coding-questions.md)
+1. [易错题](questions/易错题.md)
 
 ## 额外篇
 
