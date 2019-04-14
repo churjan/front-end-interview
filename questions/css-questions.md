@@ -224,7 +224,7 @@ e.g. 左边宽200px，右边宽150，中间自适应
   <div class="right">右侧定宽</div>
 </div>
 
-//绝对定位+中间不给宽度
+//方法二：绝对定位+中间不给宽度
 <style type="text/css">
 .container {
   position: relative;
