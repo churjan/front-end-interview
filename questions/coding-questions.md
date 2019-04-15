@@ -1,3 +1,40 @@
+### 如何使下面程序输出1，2，3
+
+```js
+for(var i = 0; i < 3; i++) {
+    setTimeout(() => {
+        console.log(i)
+    })
+}
+// 3
+// 3
+// 3
+```
+
+<details>
+<summary>参考答案</summary>
+
+```js
+// 方法一:
+for(var i = 0; i < 3; i++) {
+    (function(i) {
+        setTimeout(() => {
+            console.log(i)
+        })
+    })(i)
+}
+
+//方法二：
+for(let i = 0; i < 3; i++) {
+    setTimeout(() => {
+        console.log(i)
+    })
+}
+
+```
+
+</details>
+
 ### 求契波那切数列第n个数的值
 
 ```text
