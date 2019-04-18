@@ -105,10 +105,9 @@ console.log(result)
 ```js
 //防抖
 function debounce(cb,delay=300){
-  let timer;
   return function(...args){
-    clearTimeout(timer);
-    timer=setTimeout(()=>{
+    clearTimeout(timer.id);
+    timer.id=setTimeout(()=>{
       cb.apply(this,args);
     },delay)
   }
@@ -116,12 +115,11 @@ function debounce(cb,delay=300){
 
 //节流
 function throttle(cb,interval=300){
-  let timer;
   return function(...args){
-    if(!timer){
-      timer = setTimeout(() => {
+    if(!timer.id){
+      timer.id = setTimeout(() => {
           fn.apply(this, args);
-          timer = null;
+          timer.id = null;
       }, interval)
     }
   }
