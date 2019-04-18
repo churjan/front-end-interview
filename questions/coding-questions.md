@@ -152,3 +152,34 @@ console.log(sum(2)(3)) //5
 
 <details>
 
+### 手写一个深拷贝
+
+<details>
+<summary>参考答案</summary>
+
+```js
+function cloneDeep (target) {
+    function checkType(target) {
+        return Object.prototype.toString.call(target).slice(8, -1)
+    }
+    var result, checkedType = checkType(target)
+    if (checkedType === 'Array') {
+        result = []
+    } else if (checkedType === 'Object') {
+        result = {}
+    } else {
+        return target
+    }
+    //递归遍历对象或数组中的属性值或元素为原始值为止
+    for (var key in target) {
+        if ( checkType(target[key]) === 'Array' || checkType(target[key]) === 'Object') {
+            result[key] = cloneDeep(target[key])
+        } else {
+            result[key] = target[key]
+        }
+    }
+    return result
+}
+```
+
+</details>
