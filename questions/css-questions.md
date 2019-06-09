@@ -123,8 +123,7 @@ BFC全称为block formatting context,中文为“块级格式化上下文”，�
 e.g. 左边宽200px，右边宽150，中间自适应
 
 ```html
-//方法一：左右浮动+中间100%宽度
-//圣杯布局
+//方法一：圣杯布局
 <style type="text/css">
 .container {
   padding-left: 200px;
@@ -161,7 +160,7 @@ e.g. 左边宽200px，右边宽150，中间自适应
   <div class="right">右侧定宽</div>
 </div>
 
-//双飞翼布局
+//方法二：双飞翼布局
 <style type="text/css">
 .container {
   overflow: hidden;
@@ -201,7 +200,7 @@ e.g. 左边宽200px，右边宽150，中间自适应
   <div class="right">右侧定宽</div>
 </div>
 
-//方法二：绝对定位+中间不给宽度
+//方法三：绝对定位+中间不给宽度
 <style type="text/css">
 .container {
   position: relative;
@@ -236,7 +235,7 @@ e.g. 左边宽200px，右边宽150，中间自适应
   <div class="right">右侧定宽</div>
 </div>
 
-方法三：flex
+方法四：flex
 <style type="text/css">
 .container{
   display:flex;
