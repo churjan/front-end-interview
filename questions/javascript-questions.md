@@ -42,7 +42,61 @@ typeof function a(){} //function
 
 ### 什么是闭包
 
-闭包定义：在函数里面定义一个函数，改子函数可以访问父函数的局部变量。
+闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包最常用的方式就是在一个函数内部创建另一个函数。
+
+闭包的作用：
+
+1.能够访问函数定义时所在的词法作用域(阻止其被回收)。
+
+2.私有化变量
+
+```js
+function base() {
+    let x = 10; //私有变量
+    return {
+        getX: function() {
+            return x;
+        }
+    }
+}
+let obj = base();
+console.log(obj.getX()); //10
+```
+
+3.模拟块级作用域
+
+```js
+var a = [];
+for (var i = 0; i < 10; i++) {
+    a[i] = (function(j){
+        return function () {
+            console.log(j);
+        }
+    })(i);
+}
+a[6](); // 6
+```
+
+4.创建模块
+
+```js
+function coolModule() {
+    let name = 'Yvette';
+    let age = 20;
+    function sayName() {
+        console.log(name);
+    }
+    function sayAge() {
+        console.log(age);
+    }
+    return {
+        sayName,
+        sayAge
+    }
+}
+let info = coolModule();
+info.sayName(); //'Yvette'
+```
 
 [[↑] Back to top](#javascript问题)
 
