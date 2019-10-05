@@ -84,7 +84,7 @@ console.log(4);
 
   then2：输出 2
 
-  ### 第二轮轮事件循环
+  ### 第二轮事件循环
 
   |宏任务|微任务|
   |:-:|:-:|
@@ -98,7 +98,7 @@ console.log(4);
 
 </details>
 
-[[↑] Back to top](#事件循环)
+[[↑] Back to top](#Javascript问题)
 
 ### js中有多少个内置类型
 
