@@ -18,6 +18,105 @@
 * [什么是原型链](#什么是原型链)
 * [请简述AJAX及基本步骤](#请简述ajax及基本步骤)
 
+## 事件循环
+
+javascript是一门单线程语言，其执行机制为事件循环（Event Loop）
+
+基本概念参考：https://juejin.im/post/59e85eebf265da430d571f89
+
+1. 请输出下面程序打印信息
+
+```js
+const first = () => (new Promise((resolve,reject)=>{
+  console.log(3);
+  let p = new Promise((resolve, reject)=>{
+      console.log(7);
+      setTimeout(()=>{
+          console.log(5);
+          resolve(6); 
+      },0)
+      resolve(1);
+  }); 
+  resolve(2);
+  p.then((arg)=>{
+      console.log(arg);
+  });
+}));
+first().then((arg)=>{
+  console.log(arg);
+});
+console.log(4);
+```
+
+<details>
+  <summary>参考答案</summary>
+
+  3 7 4 1 2 5
+
+  ## 解析：
+
+  ### 第一轮事件循环
+
+  整体script作为第一个宏任务进入主线程
+
+  **执行同步的代码，把异步的放入Event Queue**
+
+  输出 3
+
+  输出 7
+
+  settimeout被分发到宏任务Event Queue,记s**ettimeout1**
+
+  then被分发到微任务Event Queue，记**then1**
+
+  then被分发到微任务Event Queue，记**then2**
+
+  输出4
+
+  |宏任务|微任务|
+  |:-:|:-:|
+  |settimeout1 |then1|
+
+  此时还剩一个宏任务
+
+  **执行宏**
+  **执行所有微任务 then1 then2**
+
+  then1：输出 1
+
+  then2：输出 2
+
+  **第二轮轮事件循环**
+
+   |宏任务|微任务|
+  |:-:|:-:|
+  |settimeout1 ||
+
+  此时还剩一个宏任务，无微任务
+
+  **执行宏任务 settimeout1**
+
+  settimeout1：输出 5
+  
+ 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</details>
+
 ### js中有多少个内置类型
 
 number,string,boolean,null,underfined,symbol(es6新增),object  
